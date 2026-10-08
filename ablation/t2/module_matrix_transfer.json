@@ -1,0 +1,41 @@
+{
+  "schema": "paper_database_v3_module_ablation_training_matrix_transfer_v1",
+  "comparison_baseline": {
+    "id": "F0",
+    "version": "V3.0",
+    "checkpoint": "models/runs/v3_0_t2_seed_42/best_t2.pt",
+    "checkpoint_sha256": "953024d86d32a740f89c8870df38a53b17b2637129932d8d709fc6a7e969be71",
+    "result": "models/docs/snapshots/v3_0/test_t2_release_metrics.json",
+    "t2_copy_encoder_from_t1": true,
+    "comparison_policy": "Descriptive only: the final baseline has a different training chain."
+  },
+  "seeds": [
+    42
+  ],
+  "parent_checkpoint": "ablation/t2/evidence/A0/t1/best_t1.pt",
+  "parent_sha256": "d1d2cddf7d2e25d9bdc11626deb44709e72411bb0f504aa01373339d305cbddc",
+  "split_digest": "ba64c09c53119be31f357c089987f706eb3266e4348d8398ff5d88e83dc0c48d",
+  "settings": [
+    {
+      "id": "F1",
+      "slug": "F1_late_fusion_with_t1_transfer",
+      "config": "ablation/t2/configs/F1_late_fusion_with_t1_transfer.yaml",
+      "schedule": "serial",
+      "t2_copy_encoder_from_t1": true
+    },
+    {
+      "id": "R2",
+      "slug": "R2_no_pim_with_t1_transfer",
+      "config": "ablation/t2/configs/R2_no_pim_with_t1_transfer.yaml",
+      "schedule": "serial",
+      "t2_copy_encoder_from_t1": true
+    },
+    {
+      "id": "R3",
+      "slug": "R3_no_ocsr_with_t1_transfer",
+      "config": "ablation/t2/configs/R3_no_ocsr_with_t1_transfer.yaml",
+      "schedule": "serial",
+      "t2_copy_encoder_from_t1": true
+    }
+  ]
+}

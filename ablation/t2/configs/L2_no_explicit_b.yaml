@@ -1,0 +1,10 @@
+extends: base_5090.yaml
+
+train:
+  t2_balanced_b_enabled: false
+  t2_b_pretrain_epochs: 0
+  t2_b_loss_weight: 0.00
+  unified_factor_b_loss_weight: 0.00
+  t2_pair_loss_weight: 0.00
+  t2_counterfactual_pairs: false
+  t2_pair_source_absent: false

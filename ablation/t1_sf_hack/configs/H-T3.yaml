@@ -1,0 +1,13 @@
+extends: base.yaml
+
+data:
+  zero_channels:
+    - t_rel
+    - delta_t
+    - pressure
+    - log1p_speed
+    - sin_direction
+    - cos_direction
+
+train:
+  output_dir: ablation/t1_sf_hack/runs/H-T3/seed_42

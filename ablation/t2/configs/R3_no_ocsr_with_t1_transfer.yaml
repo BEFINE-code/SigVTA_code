@@ -1,0 +1,5 @@
+extends: R3_no_ocsr.yaml
+
+train:
+  t2_copy_encoder_from_t1: true
+  output_dir: ablation/t2/runs/R3_no_ocsr_with_t1_transfer/seed_42

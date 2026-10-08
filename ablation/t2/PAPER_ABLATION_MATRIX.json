@@ -1,0 +1,142 @@
+{
+  "schema": "paper_database_v3_paper_ablation_matrix_v3",
+  "baseline_id": "F0",
+  "baseline_initialization": "copy T1 encoder tensors into T2 encoder before T2 training",
+  "seed": 42,
+  "reporting_split": "validation",
+  "main_model_test": {
+    "id": "F0",
+    "status": "completed_once",
+    "result": "models/docs/snapshots/v3_0/test_t2_release_metrics.json",
+    "checkpoint": "models/runs/v3_0_t2_seed_42/best_t2.pt",
+    "checkpoint_sha256": "953024d86d32a740f89c8870df38a53b17b2637129932d8d709fc6a7e969be71"
+  },
+  "excluded_from_paper": [
+    {
+      "id": "L1",
+      "reason": "loss-group exploration is outside the approved core matrix"
+    },
+    {
+      "id": "L2",
+      "reason": "loss-group exploration is outside the approved core matrix"
+    }
+  ],
+  "settings": [
+    {
+      "id": "F0",
+      "name": "final frozen V3.0 full baseline",
+      "group": "transfer_descriptive",
+      "comparison_baseline": null,
+      "status": "available_validation_and_test",
+      "result": "models/docs/snapshots/v3_0/t2_release_metrics.json",
+      "main_test_result": "models/docs/snapshots/v3_0/test_t2_release_metrics.json",
+      "checkpoint": "models/runs/v3_0_t2_seed_42/best_t2.pt"
+    },
+    {
+      "id": "C1",
+      "name": "frozen T2 encoder",
+      "group": "transfer_descriptive",
+      "comparison_baseline": "F0",
+      "status": "available",
+      "result": "ablation/t2/results_seed42/runs/C1_head_only/seed_42"
+    },
+    {
+      "id": "C2",
+      "name": "late-partial T2 encoder",
+      "group": "transfer_descriptive",
+      "comparison_baseline": "F0",
+      "status": "available",
+      "result": "ablation/t2/results_seed42/runs/C2_late_partial/seed_42"
+    },
+    {
+      "id": "T1",
+      "name": "disable T1-to-T2 encoder initialization",
+      "group": "transfer_descriptive",
+      "comparison_baseline": "F0",
+      "status": "available_validation_and_supplementary_test",
+      "result": "ablation/t2/results_seed42/runs/T1_no_t1_transfer/seed_42",
+      "supplementary_test_result": "ablation/t2/results_t1_no_transfer_test_seed42"
+    },
+    {
+      "id": "M1",
+      "name": "sequence-only encoder",
+      "group": "transfer_descriptive",
+      "comparison_baseline": "F0",
+      "status": "available",
+      "result": "ablation/t2/results_seed42/runs/M1_sequence_only/seed_42"
+    },
+    {
+      "id": "M2",
+      "name": "image-only encoder",
+      "group": "transfer_descriptive",
+      "comparison_baseline": "F0",
+      "status": "available",
+      "result": "ablation/t2/results_seed42/runs/M2_image_only/seed_42"
+    },
+    {
+      "id": "R1",
+      "name": "disable PIM and OCSR",
+      "group": "transfer_descriptive",
+      "comparison_baseline": "F0",
+      "status": "available",
+      "result": "ablation/t2/results_seed42/runs/R1_no_pim_no_ocsr/seed_42"
+    },
+    {
+      "id": "F1",
+      "name": "replace MS-CAF with late fusion",
+      "group": "no_transfer_context",
+      "comparison_baseline": "T1",
+      "status": "available_contextual",
+      "result": "ablation/t2/results_modules_seed42/runs/F1_late_fusion_no_t1_transfer/seed_42",
+      "strict_transfer_rerun_config": "ablation/t2/configs/F1_late_fusion_with_t1_transfer.yaml"
+    },
+    {
+      "id": "R2",
+      "name": "disable PIM only",
+      "group": "no_transfer_context",
+      "comparison_baseline": "T1",
+      "status": "available_contextual",
+      "result": "ablation/t2/results_modules_seed42/runs/R2_no_pim_no_t1_transfer/seed_42",
+      "strict_transfer_rerun_config": "ablation/t2/configs/R2_no_pim_with_t1_transfer.yaml"
+    },
+    {
+      "id": "R3",
+      "name": "disable OCSR only",
+      "group": "no_transfer_context",
+      "comparison_baseline": "T1",
+      "status": "available_contextual",
+      "result": "ablation/t2/results_modules_seed42/runs/R3_no_ocsr_no_t1_transfer/seed_42",
+      "strict_transfer_rerun_config": "ablation/t2/configs/R3_no_ocsr_with_t1_transfer.yaml"
+    }
+  ],
+  "comparison_policy": {
+    "no_transfer_context": "F1/R2/R3 were trained without encoder copying and are compared only with T1 no-transfer, not with formal F0.",
+    "strict_transfer_rerun_required": [
+      "F1",
+      "R2",
+      "R3"
+    ],
+    "transfer_descriptive": "Only final frozen V3.0 is F0. Historical variants differ in training chain; comparisons with F0 are descriptive, not strict single-variable estimates."
+  },
+  "t1_ablation": {
+    "status": "validation_and_test_complete",
+    "matrix": "ablation/t1/v3/t1_matrix.json",
+    "design": "ablation/t1/v3/T1_ABLATION_DESIGN.md",
+    "settings": [
+      "TF0",
+      "TM1",
+      "TM2",
+      "TF1",
+      "TA1",
+      "TQ1",
+      "TV1",
+      "TE1"
+    ],
+    "training_test_access": false,
+    "validation_completed": 8,
+    "test_completed": 8,
+    "result": "ablation/t1/v3/results_seed42",
+    "test_checkpoint_manifest": "ablation/t1/v3/results_seed42/evidence/t1_test_checkpoint_manifest.json",
+    "weights_included": false
+  }
+}

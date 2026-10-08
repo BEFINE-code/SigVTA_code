@@ -1,0 +1,4 @@
+extends: base_5090.yaml
+
+model:
+  fusion: sequence_only

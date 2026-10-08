@@ -1,0 +1,7 @@
+extends: base.yaml
+
+model:
+  t1_pair_features: product_only
+
+train:
+  output_dir: ablation/t1/runs/S2P2/seed_42

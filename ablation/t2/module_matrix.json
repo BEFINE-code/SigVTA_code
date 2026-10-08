@@ -1,0 +1,17 @@
+{
+  "schema": "paper_database_v3_module_ablation_training_matrix_v1",
+  "comparison_baseline": {
+    "id": "T1",
+    "result": "ablation/t2/results_seed42/runs/T1_no_t1_transfer/seed_42",
+    "t2_copy_encoder_from_t1": false
+  },
+  "seeds": [42],
+  "parent_checkpoint": "ablation/t2/evidence/A0/t1/best_t1.pt",
+  "parent_sha256": "d1d2cddf7d2e25d9bdc11626deb44709e72411bb0f504aa01373339d305cbddc",
+  "split_digest": "ba64c09c53119be31f357c089987f706eb3266e4348d8398ff5d88e83dc0c48d",
+  "settings": [
+    {"id": "F1", "slug": "F1_late_fusion_no_t1_transfer", "config": "ablation/t2/configs/F1_late_fusion.yaml", "schedule": "serial", "t2_copy_encoder_from_t1": false},
+    {"id": "R2", "slug": "R2_no_pim_no_t1_transfer", "config": "ablation/t2/configs/R2_no_pim.yaml", "schedule": "serial", "t2_copy_encoder_from_t1": false},
+    {"id": "R3", "slug": "R3_no_ocsr_no_t1_transfer", "config": "ablation/t2/configs/R3_no_ocsr.yaml", "schedule": "serial", "t2_copy_encoder_from_t1": false}
+  ]
+}

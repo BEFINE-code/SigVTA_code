@@ -1,0 +1,12 @@
+extends: t1_simple_base.yaml
+
+model:
+  t1_variant: simple_v2
+  t1_sequence_residual: true
+  t1_pair_stabilize: true
+  t1_pair_features: diff_product
+  t1_set_aggregation: sorted_mlp
+
+train:
+  t1_genuine_identity_only: true
+  output_dir: ablation/t1/runs/_must_be_overridden

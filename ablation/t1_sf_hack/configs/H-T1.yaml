@@ -1,0 +1,20 @@
+extends: base.yaml
+
+data:
+  num_workers: 2
+  memory_cache_items: 64
+  zero_channels:
+    - t_rel
+    - delta_t
+
+model:
+  image_chunk_size: 4
+
+train:
+  batch_t1_1v1: 8
+  batch_t1_5v1: 2
+  stage_a_batch_t1_1v1: 8
+  stage_a_batch_t1_5v1: 2
+  stage_a_grad_accumulation: 8
+  eval_batch_multiplier: 1
+  output_dir: ablation/t1_sf_hack/runs/H-T1/seed_42

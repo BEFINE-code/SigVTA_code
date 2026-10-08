@@ -1,0 +1,8 @@
+extends: base.yaml
+
+model:
+  t1_sequence_residual: false
+  t1_pair_stabilize: false
+
+train:
+  output_dir: ablation/t1/runs/S2C0/seed_42

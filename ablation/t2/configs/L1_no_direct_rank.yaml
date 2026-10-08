@@ -1,0 +1,5 @@
+extends: base_5090.yaml
+
+train:
+  unified_rank_loss_weight: 0.00
+  unified_rank_margin_loss_weight: 0.00

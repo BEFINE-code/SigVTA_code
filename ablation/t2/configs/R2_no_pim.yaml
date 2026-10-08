@@ -1,0 +1,9 @@
+extends: base_5090.yaml
+
+model:
+  use_pim: false
+  use_ocsr: true
+
+train:
+  # Preserve the completed no-transfer module run identity.
+  t2_copy_encoder_from_t1: false

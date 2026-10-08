@@ -1,0 +1,81 @@
+{
+  "schema": "paper_database_t1_simple_ablation_v2",
+  "study_id": "t1_simple_v2_seed42",
+  "status": "planned_not_trained",
+  "baseline_id": "S2F0",
+  "seed": 42,
+  "benchmark_root": "datasets/protocols/t1",
+  "split_digest": "ba64c09c53119be31f357c089987f706eb3266e4348d8398ff5d88e83dc0c48d",
+  "runs_root": "ablation/t1/runs",
+  "freeze_manifest": "ablation/t1/test_checkpoint_manifest.json",
+  "results_root": "ablation/t1/results_seed42",
+  "initialization": "fresh seed42; same ImageNet backbone; no trained T1 checkpoint",
+  "selection_policy": "dual_t1",
+  "evaluation_version": "t1_raw_logit_roc_v2",
+  "test_policy": "Freeze all eight checkpoints and Validation calibrators; once per run; same artifacts on recovery. Existing benchmark Test was seen during v1 and is reused, not a new blind holdout.",
+  "settings": [
+    {
+      "id": "S2C0",
+      "config": "configs/S2C0.yaml",
+      "change": {
+        "t1_sequence_residual": false,
+        "t1_pair_stabilize": false
+      },
+      "group": "diagnostic"
+    },
+    {
+      "id": "S2F0",
+      "config": "configs/S2F0.yaml",
+      "change": {},
+      "group": "baseline"
+    },
+    {
+      "id": "S2M1",
+      "config": "configs/S2M1.yaml",
+      "change": {
+        "fusion": "sequence_only"
+      },
+      "group": "encoder"
+    },
+    {
+      "id": "S2M2",
+      "config": "configs/S2M2.yaml",
+      "change": {
+        "fusion": "image_only"
+      },
+      "group": "encoder"
+    },
+    {
+      "id": "S2F1",
+      "config": "configs/S2F1.yaml",
+      "change": {
+        "fusion": "late"
+      },
+      "group": "encoder"
+    },
+    {
+      "id": "S2P1",
+      "config": "configs/S2P1.yaml",
+      "change": {
+        "t1_pair_features": "diff_only"
+      },
+      "group": "head"
+    },
+    {
+      "id": "S2P2",
+      "config": "configs/S2P2.yaml",
+      "change": {
+        "t1_pair_features": "product_only"
+      },
+      "group": "head"
+    },
+    {
+      "id": "S2G1",
+      "config": "configs/S2G1.yaml",
+      "change": {
+        "t1_set_aggregation": "mean"
+      },
+      "group": "head"
+    }
+  ]
+}

@@ -1,0 +1,5 @@
+extends: F1_late_fusion.yaml
+
+train:
+  t2_copy_encoder_from_t1: true
+  output_dir: ablation/t2/runs/F1_late_fusion_with_t1_transfer/seed_42

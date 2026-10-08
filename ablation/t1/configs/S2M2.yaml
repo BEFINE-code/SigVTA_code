@@ -1,0 +1,7 @@
+extends: base.yaml
+
+model:
+  fusion: image_only
+
+train:
+  output_dir: ablation/t1/runs/S2M2/seed_42

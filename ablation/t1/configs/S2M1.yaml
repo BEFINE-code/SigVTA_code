@@ -1,0 +1,7 @@
+extends: base.yaml
+
+model:
+  fusion: sequence_only
+
+train:
+  output_dir: ablation/t1/runs/S2M1/seed_42

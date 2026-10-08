@@ -1,0 +1,8 @@
+# PyTorch and torchvision are inherited from the C56 base image.
+torch==2.8.0+cu128
+torchvision==0.23.0
+numpy==1.26.4
+scipy==1.13.1
+scikit-learn==1.5.2
+dtaidistance==2.3.13
+pytest==8.3.5

@@ -1,0 +1,10 @@
+extends: base.yaml
+
+data:
+  zero_channels:
+    - t_rel
+    - delta_t
+    - log1p_speed
+
+train:
+  output_dir: ablation/t1_sf_hack/runs/H-T2/seed_42

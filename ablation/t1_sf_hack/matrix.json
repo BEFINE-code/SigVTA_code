@@ -1,0 +1,69 @@
+{
+  "schema": "paper_database_t1_sf_hack_v1",
+  "study_id": "t1_sf_hack_seed42",
+  "status": "planned_not_trained",
+  "baseline_id": "H-T1",
+  "seed": 42,
+  "benchmark_root": "datasets/protocols/t1",
+  "split_digest": "ba64c09c53119be31f357c089987f706eb3266e4348d8398ff5d88e83dc0c48d",
+  "runs_root": "ablation/t1_sf_hack/runs",
+  "freeze_manifest": "ablation/t1_sf_hack/test_checkpoint_manifest.json",
+  "results_root": "ablation/t1_sf_hack/results_seed42",
+  "initialization": "fresh seed42; same ImageNet backbone; no trained T1 checkpoint",
+  "selection_policy": "dual_t1",
+  "evaluation_version": "t1_raw_logit_roc_v2",
+  "test_reused_after_v1": false,
+  "test_policy": "Freeze all Validation checkpoints and calibrators; Test once per run. Do not select on SF FAR.",
+  "settings": [
+    {
+      "id": "H-T1",
+      "config": "configs/H-T1.yaml",
+      "change": {
+        "zero_channels": ["t_rel", "delta_t"]
+      },
+      "group": "channel"
+    },
+    {
+      "id": "H-T2",
+      "config": "configs/H-T2.yaml",
+      "change": {
+        "zero_channels": ["t_rel", "delta_t", "log1p_speed"]
+      },
+      "group": "channel"
+    },
+    {
+      "id": "H-T3",
+      "config": "configs/H-T3.yaml",
+      "change": {
+        "zero_channels": [
+          "t_rel",
+          "delta_t",
+          "pressure",
+          "log1p_speed",
+          "sin_direction",
+          "cos_direction"
+        ]
+      },
+      "group": "channel"
+    },
+    {
+      "id": "H-N1",
+      "config": "configs/H-N1.yaml",
+      "change": {
+        "time_align": "arc_length",
+        "image_cache_root": "datasets/cache/t1_sf_hack/aligned_png"
+      },
+      "group": "align"
+    },
+    {
+      "id": "H-N2",
+      "config": "configs/H-N2.yaml",
+      "change": {
+        "time_align": "arc_length",
+        "time_align_constant_pressure": true,
+        "image_cache_root": "datasets/cache/t1_sf_hack/aligned_png"
+      },
+      "group": "align"
+    }
+  ]
+}

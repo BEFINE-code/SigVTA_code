@@ -1,0 +1,4 @@
+extends: base_5090.yaml
+
+train:
+  t2_copy_encoder_from_t1: false

@@ -1,0 +1,4 @@
+extends: base.yaml
+
+train:
+  output_dir: ablation/t1/runs/S2F0/seed_42

@@ -1,0 +1,8 @@
+extends: base_5090.yaml
+
+model:
+  fusion: late
+
+train:
+  # Preserve the completed no-transfer module run identity.
+  t2_copy_encoder_from_t1: false

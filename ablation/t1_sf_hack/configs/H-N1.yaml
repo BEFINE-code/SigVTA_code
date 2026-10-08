@@ -1,0 +1,8 @@
+extends: base.yaml
+
+data:
+  time_align: arc_length
+  image_cache_root: datasets/cache/t1_sf_hack/aligned_png
+
+train:
+  output_dir: ablation/t1_sf_hack/runs/H-N1/seed_42
